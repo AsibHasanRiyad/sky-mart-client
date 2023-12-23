@@ -25,7 +25,7 @@ const Cart = () => {
           data-aos-offset="200"
           data-aos-easing="ease-in-sine"
           data-aos-duration="600"
-          className="table text-xl"
+          className="table text-sm md:text-xl"
         >
           {/* head */}
           <thead>
@@ -59,7 +59,7 @@ const Cart = () => {
                   </td>
                   <td>{item?.color}</td>
                   <td>{item?.size}</td>
-                  <th>$ {item?.price}</th>
+                  <th className=" text-xs md:text-base">$ {item?.price}</th>
                 </tr>
               </>
             ))}
@@ -68,7 +68,7 @@ const Cart = () => {
         <div className=" flex justify-center items-center my-10">
           <h1
             href="#"
-            className="text-white w-fit bg-slate-800 flex justify-center items-center gap-2 cursor-pointer hover:bg-emerald-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-3 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 hover:scale-110 transition duration-500 ease-out"
+            className="text-white w-fit bg-slate-800 flex justify-center items-center gap-2 cursor-pointer hover:bg-emerald-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-3 py-2.5 text-center  hover:scale-110 transition duration-500 ease-out"
           >
             Make Payments
             <svg
