@@ -66,7 +66,7 @@ const Navbar = () => {
 
               <li className="hover:text-gray-100 hover:scale-125 transition duration-500 ease-out ">
                 <NavLink
-                  to={"/about"}
+                  to={"/products"}
                   className={({ isActive, isPending }) =>
                     isPending ? "pending" : isActive ? "active" : ""
                   }
