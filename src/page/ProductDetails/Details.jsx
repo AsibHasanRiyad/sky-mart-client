@@ -1,33 +1,52 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import { Carousel } from "react-responsive-carousel";
 import { useForm } from "react-hook-form";
 import Select from "react-select";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const Details = () => {
   const { id } = useParams();
-  const { register, handleSubmit } = useForm();
+  const { handleSubmit } = useForm();
   const [color, setColor] = useState();
+  const [size, setSize] = useState();
   const [productDetails, setProductDetails] = useState();
   const axiosPublic = useAxiosPublic();
+  const { user } = useContext(AuthContext);
   useEffect(() => {
     axiosPublic.get(`/products/${id}`).then((res) => {
       setProductDetails(res.data);
     });
   }, [id, axiosPublic]);
-  const options = [
-    { value: "Low", label: "low" },
-    { value: "Moderate", label: "moderate" },
-    { value: "High", label: "high" },
+  const colors = [
+    { value: "Red", label: "Red" },
+    { value: "Yellow", label: "Yellow" },
+    { value: "Green", label: "Green" },
+    { value: "White", label: "White" },
   ];
-  const handelChange = (e) => {
+  const sizes = [
+    { value: "M", label: "M" },
+    { value: "L", label: "L" },
+    { value: "XL", label: "XL" },
+  ];
+  const handelColor = (e) => {
     setColor(e.value);
+  };
+  const handelSize = (e) => {
+    setSize(e.value);
   };
   console.log(color);
 
   const onSubmit = (data) => {
+    data.size = size;
+    data.color = color;
+    data.name = productDetails?.name;
+    data.price = productDetails?.price;
+    data.image = productDetails?.image1;
+    data.buyerEmail = user?.email;
     console.log(data);
+    axiosPublic.post("/cart", data).then((res) => console.log(res.data));
   };
 
   return (
@@ -121,73 +140,51 @@ const Details = () => {
                         />
                       </svg>
                       {/* add to cart modal for confirmation */}
-                      <dialog id="my_modal_2" className="modal">
+                      <dialog id="my_modal_2" className="modal ">
                         <div className="modal-box text-slate-800">
-                          <dialog id="my_modal_3" className="modal">
+                          <dialog id="my_modal_3" className="modal ">
                             <div className="modal-box">
                               <form method="dialog">
-                                {/* if there is a button in form, it will close the modal */}
                                 <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
                                   ✕
                                 </button>
                               </form>
                               <form onSubmit={handleSubmit(onSubmit)}>
-                                <div className="grid grid-cols-3 gap-6 mt-4 ">
-                                  <div className="col-span-3 md:col-span-1">
-                                    <label className="text-gray-100 text-base md:text-lg font-medium ">
-                                      Title
+                                <h1>
+                                  Please confirm your hoodie Size and color{" "}
+                                </h1>
+                                <div className="grid grid-cols-2 gap-6 mt-4 min-h-48 ">
+                                  <div>
+                                    <label className="text-slate-800  text-sm md:text-lg font-medium ">
+                                      Select Color
                                     </label>
-                                    <input
-                                      type="text"
-                                      {...register("title", { required: true })}
-                                      className="block w-full px-4 py-2 mt-2 text-gray-100 bg-transparent border border-white  rounded-md       dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
-                                    />
-                                  </div>
-                                  <div className=" col-span-2 md:col-span-1">
-                                    <label className="text-gray-100 text-base md:text-lg font-medium ">
-                                      Deadline
-                                    </label>
-                                    <input
-                                      type="date"
-                                      {...register("deadline", {
-                                        required: true,
-                                      })}
-                                      className="block w-full min-h-10 px-4 py-2 mt-2 text-gray-100 bg-transparent border border-white  rounded-md       dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
+                                    <Select
+                                      onChange={handelColor}
+                                      options={colors}
+                                      className="mt-3"
+                                      required
                                     />
                                   </div>
                                   <div>
-                                    <label className="text-gray-100  text-sm md:text-lg font-medium ">
-                                      Priority
+                                    <label className="text-slate-800  text-sm md:text-lg font-medium ">
+                                      Select Size
                                     </label>
                                     <Select
-                                      onChange={handelChange}
-                                      options={options}
+                                      onChange={handelSize}
+                                      options={sizes}
                                       className="mt-3"
+                                      required
                                     />
                                   </div>
                                 </div>
-                                <div className=" flex justify-between items-end gap-5">
-                                  <div className=" mt-6 flex-1">
-                                    <label className="text-gray-100 text-base md:text-lg font-medium ">
-                                      Post Description
-                                    </label>
-                                    <textarea
-                                      type="text"
-                                      {...register("postDescription", {
-                                        required: true,
-                                      })}
-                                      className="block w-full h-16 px-4 py-2 mt-2 text-gray-100 bg-transparent border border-white  rounded-md       dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
-                                    />
-                                  </div>
-                                  <div className="flex justify-end mt-6">
-                                    <button
-                                      type="submit"
-                                      className="px-8 py-2.5 leading-5 text-[#FF7594] text-xl transition-colors duration-300 transform h-16 bg-white rounded-md hover:bg-gray-200"
-                                    >
-                                      Add
-                                    </button>
-                                  </div>
-                                </div>
+                               <div className=" flex justify-center">
+                               <button
+                                type="submit"
+                                  className="text-white w-full bg-slate-800 flex justify-center items-center gap-2 cursor-pointer hover:bg-emerald-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 hover:scale-105 transition duration-500 ease-out"
+                                >
+                                  Add
+                                </button>
+                               </div>
                               </form>
                             </div>
                           </dialog>

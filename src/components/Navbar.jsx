@@ -75,26 +75,50 @@ const Navbar = () => {
                 </NavLink>
               </li>
               {user ? (
-                <div className="dropdown dropdown-end">
-                  <label tabIndex={0} className=" hover:cursor-pointer avatar ">
-                    <div className="w-12 rounded-full">
-                      <img src={user?.photoURL} />
-                    </div>
-                  </label>
-                  <ul
-                    tabIndex={0}
-                    className="menu menu-sm dropdown-content mt-5 z-[1] p-2 shadow bg-base-100 text-slate-800 rounded-box w-52"
+                <div className=" flex items-center gap-5">
+                  <Link
+                    to={"/cart"}
+                    className="hover:text-gray-100 hover:scale-125 transition duration-500 ease-out cursor-pointer"
                   >
-                    <li>
-                      <a className="justify-between">Profile</a>
-                    </li>
-                    <li>
-                      <a>{user?.displayName}</a>
-                    </li>
-                    <li>
-                      <button onClick={handelLogout}>Logout</button>
-                    </li>
-                  </ul>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth={1.5}
+                      stroke="currentColor"
+                      className="w-6 h-6"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"
+                      />
+                    </svg>
+                  </Link>
+                  <div className="dropdown dropdown-end mt-2">
+                    <label
+                      tabIndex={0}
+                      className=" hover:cursor-pointer avatar "
+                    >
+                      <div className="w-10 rounded-full">
+                        <img src={user?.photoURL} />
+                      </div>
+                    </label>
+                    <ul
+                      tabIndex={0}
+                      className="menu menu-sm dropdown-content mt-5 z-[1] p-2 shadow bg-base-100 text-slate-800 rounded-box w-52"
+                    >
+                      <li>
+                        <a className="justify-between">Profile</a>
+                      </li>
+                      <li>
+                        <a>{user?.displayName}</a>
+                      </li>
+                      <li>
+                        <button onClick={handelLogout}>Logout</button>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
               ) : (
                 <li className=" hover:text-gray-100 hover:scale-125 transition duration-500 ease-out">
@@ -140,7 +164,6 @@ const Navbar = () => {
               Products
             </NavLink>
           </li>
-
 
           {user ? (
             <div className="dropdown dropdown-end">
