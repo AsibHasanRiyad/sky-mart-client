@@ -3,6 +3,7 @@ import Banner from "../../components/Banner";
 import Product from "../Products/Product";
 import { Link } from "react-router-dom";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
+import Review from "../../components/Review/Review";
 
 const Home = () => {
   const [products, setProducts] = useState();
@@ -50,6 +51,9 @@ const Home = () => {
           </Link>
         </div>
       </div>
+
+      {/* review */}
+      <Review />
     </div>
   );
 };
