@@ -161,7 +161,7 @@ const Register = () => {
           <div>
             <button
               type="submit"
-              className="bg-slate-800 hover:bg-slate-600 transition-all transform duration-300 w-full rounded-md py-3 text-white"
+              className="bg-slate-800 hover:bg-slate-600  w-full rounded-md py-3 text-white transition-all transform hover:scale-110  duration-500 ease-out"
             >
               Sign Up
             </button>
@@ -175,7 +175,7 @@ const Register = () => {
         </div>
         <div
           onClick={handelGoogleSignIn}
-          className="flex justify-center items-center space-x-2 border my-3 p-1 border-slate-300 border-rounded cursor-pointer rounded hover:bg-slate-800 hover:text-white transition-all transform duration-300"
+          className="flex justify-center items-center space-x-2 border my-3 p-1 border-slate-300 border-rounded cursor-pointer rounded hover:bg-slate-800 hover:text-white  transition-all transform hover:scale-110  duration-500 ease-out"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

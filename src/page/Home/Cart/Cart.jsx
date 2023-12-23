@@ -20,7 +20,13 @@ const Cart = () => {
         Added Products
       </h1>
       <div className="overflow-x-auto">
-        <table className="table text-xl">
+        <table
+          data-aos="fade-down"
+          data-aos-offset="200"
+          data-aos-easing="ease-in-sine"
+          data-aos-duration="600"
+          className="table text-xl"
+        >
           {/* head */}
           <thead>
             <tr className=" bg-gray-200">
@@ -32,13 +38,10 @@ const Cart = () => {
             </tr>
           </thead>
           <tbody>
-            {/* row 1 */}
             {cart.map((item, index) => (
               <>
                 <tr>
-                  <td>
-                    {index +1}
-                  </td>
+                  <td>{index + 1}</td>
                   <td>
                     <div className="flex items-center gap-3">
                       <div className="avatar">
@@ -54,13 +57,9 @@ const Cart = () => {
                       </div>
                     </div>
                   </td>
-                  <td>
-                   {item?.color}
-                  </td>
+                  <td>{item?.color}</td>
                   <td>{item?.size}</td>
-                  <th>
-                    $ {item?.price}
-                  </th>
+                  <th>$ {item?.price}</th>
                 </tr>
               </>
             ))}

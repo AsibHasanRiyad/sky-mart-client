@@ -166,30 +166,42 @@ const Navbar = () => {
           </li>
 
           {user ? (
-            <div className="dropdown dropdown-end">
-              <label
-                tabIndex={0}
-                className="btn btn-ghost btn-circle avatar bg-[#5737FB] "
-              >
-                <div className="w-8 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                  <img src={user?.photoURL} />
-                </div>
-              </label>
-              <ul
-                tabIndex={0}
-                className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 text-[#5737FB] rounded-box w-52"
-              >
-                <li>
-                  <a className="justify-between">Profile</a>
-                </li>
-                <li>
-                  <a>{user?.displayName}</a>
-                </li>
-                <li>
-                  <button onClick={handelLogout}>Logout</button>
-                </li>
-              </ul>
-            </div>
+            <>
+              <li className="hover:text-gray-100 ">
+                <NavLink
+                  to={"/cart"}
+                  className={({ isActive, isPending }) =>
+                    isPending ? "pending" : isActive ? "active" : ""
+                  }
+                >
+                  Cart
+                </NavLink>
+              </li>
+              <div className="dropdown dropdown-end">
+                <label
+                  tabIndex={0}
+                  className="btn btn-ghost btn-circle avatar "
+                >
+                  <div className="w-12 rounded-full ">
+                    <img src={user?.photoURL} />
+                  </div>
+                </label>
+                <ul
+                  tabIndex={0}
+                  className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 text-[#5737FB] rounded-box w-52"
+                >
+                  <li>
+                    <a className="justify-between">Profile</a>
+                  </li>
+                  <li>
+                    <a>{user?.displayName}</a>
+                  </li>
+                  <li>
+                    <button onClick={handelLogout}>Logout</button>
+                  </li>
+                </ul>
+              </div>
+            </>
           ) : (
             <li className="hover:text-gray-100 transform transition-all duration-500  ">
               <NavLink

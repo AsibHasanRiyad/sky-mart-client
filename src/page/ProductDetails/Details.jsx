@@ -1,10 +1,11 @@
 import { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import { Carousel } from "react-responsive-carousel";
 import { useForm } from "react-hook-form";
 import Select from "react-select";
 import { AuthContext } from "../../provider/AuthProvider";
+import toast from "react-hot-toast";
 
 const Details = () => {
   const { id } = useParams();
@@ -14,6 +15,7 @@ const Details = () => {
   const [productDetails, setProductDetails] = useState();
   const axiosPublic = useAxiosPublic();
   const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
   useEffect(() => {
     axiosPublic.get(`/products/${id}`).then((res) => {
       setProductDetails(res.data);
@@ -39,6 +41,7 @@ const Details = () => {
   console.log(color);
 
   const onSubmit = (data) => {
+    const toastId = toast.loading("Adding....");
     data.size = size;
     data.color = color;
     data.name = productDetails?.name;
@@ -46,7 +49,13 @@ const Details = () => {
     data.image = productDetails?.image1;
     data.buyerEmail = user?.email;
     console.log(data);
-    axiosPublic.post("/cart", data).then((res) => console.log(res.data));
+    axiosPublic.post("/cart", data).then((res) => {
+      console.log(res.data);
+      if (res.data.insertedId) {
+        toast.success("Product added to cart...", { id: toastId });
+        navigate("/products");
+      }
+    });
   };
 
   return (
@@ -55,9 +64,15 @@ const Details = () => {
         <div className="max-w-6xl px-4 py-4 mx-auto lg:py-8 md:px-6">
           <div className="flex flex-wrap -mx-4">
             <div className="w-full px-4 md:w-1/2 ">
-              <div className="sticky top-0 z-50 overflow-hidden ">
+              <div
+                data-aos="fade-right"
+                data-aos-offset="200"
+                data-aos-easing="ease-in-sine"
+                data-aos-duration="600"
+                className="sticky top-0 z-50 overflow-hidden "
+              >
                 {/*  */}
-                <Carousel width={350} dynamicHeight={false}>
+                <Carousel lg:width={350} dynamicHeight={false}>
                   <div>
                     <img src={productDetails?.image1} />
                   </div>
@@ -67,7 +82,15 @@ const Details = () => {
                 </Carousel>
               </div>
             </div>
-            <div className="w-full px-4 md:w-1/2 ">
+
+            {/* details code */}
+            <div
+              data-aos="fade-left"
+              data-aos-offset="200"
+              data-aos-easing="ease-in-sine"
+              data-aos-duration="600"
+              className="w-full px-4 md:w-1/2 "
+            >
               <div className="lg:pl-20">
                 <div className="pb-6 mb-8 border-b border-gray-200 dark:border-gray-700">
                   <h2 className="max-w-xl mt-2 mb-6 text-xl font-bold dark:text-gray-300 md:text-4xl">
@@ -177,14 +200,14 @@ const Details = () => {
                                     />
                                   </div>
                                 </div>
-                               <div className=" flex justify-center">
-                               <button
-                                type="submit"
-                                  className="text-white w-full bg-slate-800 flex justify-center items-center gap-2 cursor-pointer hover:bg-emerald-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 hover:scale-105 transition duration-500 ease-out"
-                                >
-                                  Add
-                                </button>
-                               </div>
+                                <div className=" flex justify-center">
+                                  <button
+                                    type="submit"
+                                    className="text-white w-full bg-slate-800 flex justify-center items-center gap-2 cursor-pointer hover:bg-emerald-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 hover:scale-105 transition duration-500 ease-out"
+                                  >
+                                    Add
+                                  </button>
+                                </div>
                               </form>
                             </div>
                           </dialog>
