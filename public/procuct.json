@@ -1,0 +1,93 @@
+[
+      {
+        "name": "Classic Hoodie",
+        "size": ["M", "L", "XL"],
+        "images": [
+          "classic_hoodie_front.jpg",
+          "classic_hoodie_back.jpg"
+        ],
+        "details": "A comfortable and stylish hoodie with a classic design, suitable for everyday wear."
+      },
+      {
+        "name": "Sporty Zip Hoodie",
+        "size": ["M", "L", "XL"],
+        "images": [
+          "sporty_zip_hoodie_front.jpg",
+          "sporty_zip_hoodie_back.jpg"
+        ],
+        "details": "A zip-up hoodie with a sporty look, perfect for workouts and casual outings."
+      },
+      {
+        "name": "Cozy Fleece Hoodie",
+        "size": ["M", "L", "XL"],
+        "images": [
+          "cozy_fleece_hoodie_front.jpg",
+          "cozy_fleece_hoodie_back.jpg"
+        ],
+        "details": "Stay warm and cozy with this fleece-lined hoodie, great for chilly weather."
+      },
+      {
+        "name": "Graphic Print Hoodie",
+        "size": ["M", "L", "XL"],
+        "images": [
+          "graphic_print_hoodie_front.jpg",
+          "graphic_print_hoodie_back.jpg"
+        ],
+        "details": "Express your style with a hoodie featuring unique and eye-catching graphic prints."
+      },
+      {
+        "name": "Vintage Wash Hoodie",
+        "size": ["M", "L", "XL"],
+        "images": [
+          "vintage_wash_hoodie_front.jpg",
+          "vintage_wash_hoodie_back.jpg"
+        ],
+        "details": "A hoodie with a vintage wash for a worn-in and retro vibe, perfect for a laid-back look."
+      },
+      {
+        "name": "Tech Fleece Pullover",
+        "size": ["M", "L", "XL"],
+        "images": [
+          "tech_fleece_pullover_front.jpg",
+          "tech_fleece_pullover_back.jpg"
+        ],
+        "details": "Upgrade your hoodie collection with this tech fleece pullover, combining style and functionality."
+      },
+      {
+        "name": "Striped Hoodie",
+        "size": ["M", "L", "XL"],
+        "images": [
+          "striped_hoodie_front.jpg",
+          "striped_hoodie_back.jpg"
+        ],
+        "details": "Add a touch of style with this striped hoodie, perfect for a trendy and casual look."
+      },
+      {
+        "name": "Hooded Sweatshirt Dress",
+        "size": ["M", "L", "XL"],
+        "images": [
+          "sweatshirt_dress_front.jpg",
+          "sweatshirt_dress_back.jpg"
+        ],
+        "details": "Stay comfortable and fashionable with this hooded sweatshirt dress, ideal for a relaxed style."
+      },
+      {
+        "name": "Color Block Hoodie",
+        "size": ["M", "L", "XL"],
+        "images": [
+          "color_block_hoodie_front.jpg",
+          "color_block_hoodie_back.jpg"
+        ],
+        "details": "Make a statement with this color block hoodie, featuring bold and contrasting colors."
+      },
+      {
+        "name": "Cropped Hoodie",
+        "size": ["M", "L", "XL"],
+        "images": [
+          "cropped_hoodie_front.jpg",
+          "cropped_hoodie_back.jpg"
+        ],
+        "details": "Elevate your streetwear style with this cropped hoodie, perfect for a modern and edgy look."
+      }
+    ]
+  
