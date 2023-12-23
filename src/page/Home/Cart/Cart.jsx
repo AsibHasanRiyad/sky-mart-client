@@ -24,12 +24,12 @@ const Cart = () => {
       <div className=" grid grid-cols-1 lg:grid-cols-2 gap-0 lg:gap-8">
         {cart?.map((item) => (
           <div key={item._id}>
-            <div className="flex flex-col dark:bg-gray-900 dark:text-gray-100">
-              <ul className="flex flex-col divide-y dark:divide-gray-700">
+            <div className="flex flex-col mb-4  ">
+              <ul className="flex flex-col divide-y ">
                 <li className="flex flex-col py-2 sm:flex-row sm:justify-between">
                   <div className="flex w-full space-x-2 sm:space-x-4">
                     <img
-                      className="flex-shrink-0 object-cover w-20 h-20 dark:border-transparent rounded outline-none sm:w-32 sm:h-32 dark:bg-gray-500"
+                      className="flex-shrink-0 object-cover w-20 h-20  rounded outline-none sm:w-32 sm:h-32 "
                       src={item?.image}
                       alt="Polaroid camera"
                     />
@@ -39,10 +39,10 @@ const Cart = () => {
                           <h3 className="text-lg font-semibold sm:pr-8">
                             {item?.name}
                           </h3>
-                          <p className="text-sm dark:text-gray-400">
+                          <p className="text-sm ">
                             Color: {item?.color}
                           </p>
-                          <p className="text-sm dark:text-gray-400">
+                          <p className="text-sm ">
                             Size: {item?.size}
                           </p>
                         </div>
