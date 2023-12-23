@@ -17,7 +17,8 @@ const Cart = () => {
   const total = cart.reduce((sum, cart) => sum + cart?.price, 0);
   console.log(total);
   return (
-    <div className=" px-4 lg:px-20 mt-10">
+    <div className=" min-h-screen">
+      <div className=" px-4 lg:px-20 mt-10">
       {/* cart */}
       <h2 className="text-xl font-semibold my-10">Your cart</h2>
       <div className=" grid grid-cols-1 lg:grid-cols-2 gap-0 lg:gap-8">
@@ -89,6 +90,7 @@ const Cart = () => {
           </svg>
         </button>
       </div>
+    </div>
     </div>
   );
 };
