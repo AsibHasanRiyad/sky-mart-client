@@ -69,7 +69,7 @@ const Details = () => {
                 data-aos-offset="200"
                 data-aos-easing="ease-in-sine"
                 data-aos-duration="600"
-                className="sticky top-0 z-50 overflow-hidden "
+                className="sticky top-0  overflow-hidden "
               >
                 {/*  */}
                 <Carousel lg:width={350} dynamicHeight={false}>

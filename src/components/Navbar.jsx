@@ -18,7 +18,7 @@ const Navbar = () => {
       data-aos-easing="ease-in-sine"
       data-aos-duration="600"
       style={{ zIndex: 10 }}
-      className="drawer bg-slate-900 pb-2"
+      className="drawer bg-slate-900 pb-2 z-50"
     >
       <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content flex flex-col">
