@@ -60,7 +60,7 @@ const Details = () => {
 
   return (
     <div>
-      <div className=" py-5 lg:py-20 overflow-hidden bg-white font-poppins dark:bg-gray-800">
+      <div className=" py-5 lg:py-20 overflow-hidden bg-white font-poppins ">
         <div className="max-w-6xl px-4 py-4 mx-auto lg:py-8 md:px-6">
           <div className="flex flex-wrap -mx-4">
             <div className="w-full px-4 md:w-1/2 ">
@@ -92,45 +92,45 @@ const Details = () => {
               className="w-full px-4 md:w-1/2 "
             >
               <div className="lg:pl-20">
-                <div className="pb-6 mb-8 border-b border-gray-200 dark:border-gray-700">
-                  <h2 className="max-w-xl mt-2 mb-6 text-xl font-bold dark:text-gray-300 md:text-4xl">
+                <div className="pb-6 mb-8 border-b border-gray-200 ">
+                  <h2 className="max-w-xl mt-2 mb-6 text-xl font-bold ">
                     {productDetails?.name}
                   </h2>
-                  <p className="max-w-md mb-8 text-gray-700 dark:text-gray-400">
+                  <p className="max-w-md mb-8 text-gray-700 ">
                     {productDetails?.details}
                   </p>
-                  <p className="inline-block text-2xl font-semibold text-gray-700 dark:text-gray-400 ">
+                  <p className="inline-block text-2xl font-semibold text-gray-700  ">
                     <span>${productDetails?.price}</span>
                   </p>
                 </div>
                 <div className="mb-8">
-                  <h2 className="mb-2 text-xl font-bold dark:text-gray-400">
+                  <h2 className="mb-2 text-xl font-bold ">
                     Available Color
                   </h2>
                   <div className="flex flex-wrap -mb-2">
-                    <button className="p-1 mb-2 mr-2 border border-transparent rounded-full hover:border-gray-400 dark:border-gray-800 dark:hover:border-gray-400 ">
+                    <button className="p-1 mb-2 mr-2 border border-transparent rounded-full hover:border-gray-400  ">
                       <div className="w-6 h-6 bg-red-600 rounded-full"></div>
                     </button>
-                    <button className="p-1 mb-2 mr-2 border border-transparent rounded-full hover:border-gray-400 dark:border-gray-800 dark:hover:border-gray-400">
+                    <button className="p-1 mb-2 mr-2 border border-transparent rounded-full hover:border-gray-400 ">
                       <div className="w-6 h-6 bg-green-600 rounded-full"></div>
                     </button>
-                    <button className="p-1 mb-2 border border-transparent rounded-full hover:border-gray-400 dark:border-gray-800 dark:hover:border-gray-400">
+                    <button className="p-1 mb-2 border border-transparent rounded-full hover:border-gray-400 ">
                       <div className="w-6 h-6 bg-yellow-500 rounded-full"></div>
                     </button>
-                    <button className="p-1 mb-2 border border-transparent rounded-full hover:border-gray-400 dark:border-gray-800 dark:hover:border-gray-400">
+                    <button className="p-1 mb-2 border border-transparent rounded-full hover:border-gray-400 ">
                       <div className="w-6 h-6 rounded-full bg-sky-400"></div>
                     </button>
                   </div>
                 </div>
-                <div className="pb-6 mb-8 border-b border-gray-300 dark:border-gray-700">
-                  <h2 className="mb-2 text-xl font-bold dark:text-gray-400">
+                <div className="pb-6 mb-8 border-b border-gray-300 ">
+                  <h2 className="mb-2 text-xl font-bold ">
                     Available Size
                   </h2>
                   <div className="flex flex-wrap -mb-2">
                     {productDetails?.size?.map((x) => (
                       <button
                         key={x}
-                        className="p-1 mb-2 mr-2 border border-transparent rounded-full hover:border-gray-400 dark:border-gray-800 dark:hover:border-gray-400"
+                        className="p-1 mb-2 mr-2 border border-transparent rounded-full hover:border-gray-400 "
                       >
                         <div className="w-6 h-6 bg-gray-200 rounded-full">
                           {x}
@@ -145,7 +145,7 @@ const Details = () => {
                       onClick={() =>
                         document.getElementById("my_modal_3").showModal()
                       }
-                      className="text-white w-fit bg-slate-800 flex justify-center items-center gap-2 cursor-pointer hover:bg-emerald-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-3 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 hover:scale-110 transition duration-500 ease-out"
+                      className="text-white w-fit bg-slate-800 flex justify-center items-center gap-2 cursor-pointer hover:bg-emerald-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-3 py-2.5 text-center  hover:scale-110 transition duration-500 ease-out"
                     >
                       Add To Cart
                       <svg
@@ -203,7 +203,7 @@ const Details = () => {
                                 <div className=" flex justify-center">
                                   <button
                                     type="submit"
-                                    className="text-white w-full bg-slate-800 flex justify-center items-center gap-2 cursor-pointer hover:bg-emerald-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 hover:scale-105 transition duration-500 ease-out"
+                                    className="text-white w-full bg-slate-800 flex justify-center items-center gap-2 cursor-pointer hover:bg-emerald-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base py-2.5 text-center  hover:scale-105 transition duration-500 ease-out"
                                   >
                                     Add
                                   </button>
