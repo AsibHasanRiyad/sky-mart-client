@@ -104,9 +104,7 @@ const Details = () => {
                   </p>
                 </div>
                 <div className="mb-8">
-                  <h2 className="mb-2 text-xl font-bold ">
-                    Available Color
-                  </h2>
+                  <h2 className="mb-2 text-xl font-bold ">Available Color</h2>
                   <div className="flex flex-wrap -mb-2">
                     <button className="p-1 mb-2 mr-2 border border-transparent rounded-full hover:border-gray-400  ">
                       <div className="w-6 h-6 bg-red-600 rounded-full"></div>
@@ -123,9 +121,7 @@ const Details = () => {
                   </div>
                 </div>
                 <div className="pb-6 mb-8 border-b border-gray-300 ">
-                  <h2 className="mb-2 text-xl font-bold ">
-                    Available Size
-                  </h2>
+                  <h2 className="mb-2 text-xl font-bold ">Available Size</h2>
                   <div className="flex flex-wrap -mb-2">
                     {productDetails?.size?.map((x) => (
                       <button
@@ -163,56 +159,58 @@ const Details = () => {
                         />
                       </svg>
                       {/* add to cart modal for confirmation */}
-                      <dialog id="my_modal_2" className="modal ">
-                        <div className="modal-box text-slate-800">
-                          <dialog id="my_modal_3" className="modal ">
-                            <div className="modal-box">
-                              <form method="dialog">
-                                <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
-                                  ✕
-                                </button>
-                              </form>
-                              <form onSubmit={handleSubmit(onSubmit)}>
-                                <h1>
-                                  Please confirm your hoodie Size and color{" "}
-                                </h1>
-                                <div className="grid grid-cols-2 gap-6 mt-4 min-h-48 ">
-                                  <div>
-                                    <label className="text-slate-800  text-sm md:text-lg font-medium ">
-                                      Select Color
-                                    </label>
-                                    <Select
-                                      onChange={handelColor}
-                                      options={colors}
-                                      className="mt-3"
-                                      required
-                                    />
-                                  </div>
-                                  <div>
-                                    <label className="text-slate-800  text-sm md:text-lg font-medium ">
-                                      Select Size
-                                    </label>
-                                    <Select
-                                      onChange={handelSize}
-                                      options={sizes}
-                                      className="mt-3"
-                                      required
-                                    />
-                                  </div>
-                                </div>
-                                <div className=" flex justify-center">
-                                  <button
-                                    type="submit"
-                                    className="text-white w-full bg-slate-800 flex justify-center items-center gap-2 cursor-pointer hover:bg-emerald-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base py-2.5 text-center  hover:scale-105 transition duration-500 ease-out"
-                                  >
-                                    Add
+                      <div>
+                        <dialog id="my_modal_2" className="modal ">
+                          <div className="modal-box text-slate-800">
+                            <dialog id="my_modal_3" className="modal ">
+                              <div className="modal-box">
+                                <form method="dialog">
+                                  <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
+                                    ✕
                                   </button>
-                                </div>
-                              </form>
-                            </div>
-                          </dialog>
-                        </div>
-                      </dialog>
+                                </form>
+                                <form onSubmit={handleSubmit(onSubmit)}>
+                                  <h1>
+                                    Please confirm your hoodie Size and color{" "}
+                                  </h1>
+                                  <div className="grid grid-cols-2 gap-6 mt-4 min-h-48 ">
+                                    <div>
+                                      <label className="text-slate-800  text-sm md:text-lg font-medium ">
+                                        Select Color
+                                      </label>
+                                      <Select
+                                        onChange={handelColor}
+                                        options={colors}
+                                        className="mt-3"
+                                        required
+                                      />
+                                    </div>
+                                    <div>
+                                      <label className="text-slate-800  text-sm md:text-lg font-medium ">
+                                        Select Size
+                                      </label>
+                                      <Select
+                                        onChange={handelSize}
+                                        options={sizes}
+                                        className="mt-3"
+                                        required
+                                      />
+                                    </div>
+                                  </div>
+                                  <div className=" flex justify-center">
+                                    <button
+                                      type="submit"
+                                      className="text-white w-full bg-slate-800 flex justify-center items-center gap-2 cursor-pointer hover:bg-emerald-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base py-2.5 text-center  hover:scale-105 transition duration-500 ease-out"
+                                    >
+                                      Add
+                                    </button>
+                                  </div>
+                                </form>
+                              </div>
+                            </dialog>
+                          </div>
+                        </dialog>
+                      </div>
                     </button>
                   </div>
                 </div>
